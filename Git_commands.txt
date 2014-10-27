@@ -1,0 +1,162 @@
+--------------------------------------------------------------------------------------------------------
+GIT commands
+--------------------------------------------------------------------------------------------------------
+git add <file.name>					Add files to the staging area
+git add '*.txt'						Add multiple files to the staging area
+git add --all						Add all new or modified files to the staging area
+git add .							Add all new or modified files from the current branch
+git blame <file.name>				Displays all changes on each line, who made them and when and which commit created the change 
+git branch							List all local branches
+git branch -r						List all remote branches
+git branch -a						List all local and remote branches
+git branch <branch_name>			Create a branch
+git branch -d <branch_name>			Delete a branch (will warn if non-merged commits)
+git branch -D <branch_name>			Delete a branch	(will not warn)
+git branch -m <branch_name>			Rename a branch
+git checkout <branch_name>			Switch branches
+git checkout -b <branch_name>		Create a branch and check it out
+git checkout -- <file.name>			Change a file back to status before last commit
+git checkout -- <file_1> <file_2>	Change multiple files back to status before last commit
+git clone <URL> <opt_local_name>	Clone a GIT and set an optional local name
+git commit -a						Commit and auto stage modified  and deleted files. New files that we haven't told Git about are not affected.
+git commit -m "<commitmsg>"			Store staged changes, with a commitmsg
+git commit --amend -m "<commitmsg>"	Add, with a new commit msg, whatever has been staged to last commit
+git commit -am <file_name>			Commit changes without passing the staging step
+git config alias.co commit			Configure the alias co for commit
+git diff <branch_1> <branch_2>		Diff changes between two branches
+git diff HEAD						Diff changes with latest commit (HEAD = Refers to last commit)
+git diff HEAD^						Diff changes against parent of latest commit
+git diff HEAD^^						Diff changes against grandparent (= two commits ago) of latest commit
+git diff HEAD ~5					Diff changes against five commits ago
+git diff HEAD^..HEAD				Diff changes second most recent commit vs most recent commit
+git diff --staged					Diff all staged changes
+git diff tag_1 tag_2				Diff two tags (Press 'q' to return from the diff window)
+git fetch							Copy (pulls) the remote branch to local repo
+git help							Help
+git help <command>					Help with a specific command
+git init							Initializes (creates) a local git repository
+git log								Displays history of all changes
+git log -p							Show patch introduced at each commit
+git log tag_1..tag_2				Show a list of file that have been changed between two tags 
+git log --pretty=oneline			Displays history of all changes, one per line
+git log --oneline -p				Displays what lines were removed and added for the files modified for each commit
+git log --oneline --stat			Displays how many insertions and completeions were made
+git log --oneline --graph			Displays a visual representation of the branches and the commits on them so that merge bubbles are (hopefully) visible
+git log --until=1.minute.ago		Display history of changes up until one minute ago
+git merge <branch_name>				Merges changes from <branch_name> with current branch
+git merge origin/master					
+git push -u <name> <branch>			Push the local commits (name: origin = remote repo name | branch: master = local branch to push | -u = Remember parameters)
+git push --tags						Push all new tags to remote
+git push origin :<branch_name>		Delete <branch_name> on origin
+git pull origin master				Check or and pull any changes done
+git rebase <branch_name>			Move all changes to master which are not in origin/master to a temporary area, then run all origin/master commits and then run all commits in the temp area, one at a time 
+git rebase --continue				Continue a halted rebase, such after having resolved a conflict
+git rebase --skip					Skip a patch in a halted rebase
+git rebase --abort					Roll abck all changes done during the rebase
+git remote -v						Show remote gits
+git remote add <name> <URL>			Add files to a remote directory | name usually = origin
+git remote show <branch_name>		Show all remote branches and whether they are tracked or not, local branches etc.
+git remote prune origin				Remove (clean out) references for old stale branches
+git rm '*.txt'						Stage removal of files
+git remove rm <file.name>			Remove a remote file
+git reset <path/file.name>			Unstage a file
+git reset --soft HEAD^				Undo last commit, put changes into staging
+git reset --hard HEAD^				Undo last commit and all changes
+git reset --hard HEAD^^				Undo last two commits and all changes
+git status							Lists what has changed since last commit
+git tag								List all tags
+git tag -a <name> -m "<Commitmsg>"	Set a tag with <name> and <commit_msg>
+git tag <new_name> <old_name> && git tag -d <old_name>				Rename tag old to new
+git <command> --dry-run				Fake a run of a command
+--------------------------------------------------------------------------------------------------------
+*
+*
+--------------------------------------------------------------------------------------------------------
+Info
+--------------------------------------------------------------------------------------------------------
+- Staged files = Files we've told git that are ready to be committed.
+- Keep commit messages in the presens
+- Fast forward = Simple merge (no new commits have been made on the master branch) | Recursive = 
+- Tag = Reference to a specific commit
+
+
+How Git Pull works:
+1 Fetch or synch local repo with remote repo.
+2 merges the origin/master with master
+*
+*
+--------------------------------------------------------------------------------------------------------
+git push origin HEAD:refs/for/ste-dev-br1
+--------------------------------------------------------------------------------------------------------
+*
+*
+--------------------------------------------------------------------------------------------------------
+Cygwin (Unix) shell commands
+--------------------------------------------------------------------------------------------------------
+** General **
+echo <text>								Echo (print) a text
+echo text_1 > <file>					Create a file with a text
+echo text_2 >> <file>					Append <text_2> to file <file>
+echo ??*								List all files with a name consisting of two or more chars
+wc -l < <file>							Count lines in <file>
+
+sort									End input with ctrl+d
+[!a-z]									Match any character except lower case chars
+
+** Directories **
+cd <directory>							Change to a directory
+cd ../..								Change to a directory two steps above in the file structure
+ls -la									Show all fields, inclusive hidden
+mkdir									Create a new directory
+rmdir									Remove a directory
+rmdir -r								Remove a directory and the files within it
+pwd										Tells you what directory you are currently in
+
+** Files **
+cat	<file_name>							Display the contents of a file
+cp <dir>/<filename1> <dir>/<filename2>	Copy - Make a copy of a file
+cp -R <directory> <new directory>  	 	Make a copy of a directory
+mv <filename> <new filename>			Move - Move or rename a file 
+rm <filename1> <filename2>	 			Remove - Delete file(s)
+wc <file_name>							Count the number of lines, words and characters in a file
+--------------------------------------------------------------------------------------------------------
+*
+*
+--------------------------------------------------------------------------------------------------------
+Things to add when setting up Cygwin
+--------------------------------------------------------------------------------------------------------
+Set the git-core-editor file to be executable:
+chmod +x /usr/local/bin/git-core-editor.sh
+
+
+>>> Make it possible to use Npp for editing files in Notepad++ (don’t forget to source it):
+Add the following to .bashrc:
+#
+npp () {
+/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe \
+"$(cygpath -aw "$@")" &
+}
+#
+--------------------------------------------------------------------------------------------------------
+*
+*
+Just do this:
+
+$ git clone https://github.com/SirPurple/Test.git
+$ cd Test
+$ git checkout Football
+Branch branchxyz set up to track remote branch branchxyz from origin.
+Switched to a new branch 'branchxyz'
+$ git pull
+Already up-to-date.
+$ git branch
+* branchxyz
+  master
+$ git branch -a
+* branchxyz
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/branchxyz
+  remotes/origin/branch123
+You see, 'git clone git://example.com/myprojectt' fetches everything, even the branches, you just have to checkout them, then your local branch will be created.
+--------------------------------------------------------------------------------------------------------
