@@ -85,6 +85,12 @@ How Git Pull works:
 2 merges the origin/master with master
 *
 *
+Updating your local branch's tracking reference to the new remote:
+1 git branch -m old_branch new_branch         # Rename branch locally    
+2 git push origin :old_branch                 # Delete the old branch    
+3 git push --set-upstream origin new_branch   # Push the new branch, set local branch to track the new remote
+*
+*
 --------------------------------------------------------------------------------------------------------
 git push origin HEAD:refs/for/ste-dev-br1
 --------------------------------------------------------------------------------------------------------
