@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------------------------------
 GIT commands
 --------------------------------------------------------------------------------------------------------
-git add <file.name>					Add files to the staging area
+git add <file.name>					Add files to the staging area - or start tracking a new files file
 git add '*.txt'						Add multiple files to the staging area
 git add --all						Add all new or modified files to the staging area
 git add .							Add all new or modified files from the current branch
