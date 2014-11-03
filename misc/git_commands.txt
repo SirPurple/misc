@@ -17,7 +17,7 @@ git checkout <branch_name>			Switch branches
 git checkout -b <branch_name>		Create a branch and check it out
 git checkout -- <file.name>			Change a file back to status before last commit
 git checkout -- <file_1> <file_2>	Change multiple files back to status before last commit
-git clone <URL> <opt_local_name>	Clone a GIT and set an optional local name
+git clone <URL> <opt_local_name>	Clone a GIT repository (and set an optional local name)
 git commit -a						Commit and auto stage modified and deleted files. New files that we haven't told Git about are not affected.
 git commit -m "<commitmsg>"			Store staged changes, with a commit message
 git commit --amend -m "<commitmsg>"	Add, with a new commit msg, whatever has been staged to last commit
@@ -34,7 +34,7 @@ git diff tag_1 tag_2				Diff two tags (Press 'q' to return from the diff window)
 git fetch							Copy (pulls) the remote branch to local repo
 git help							Help
 git help <command>					Help with a specific command
-git init							Initializes (creates) a local git repository
+git init							Initializes (creates) a local git repository (a subdir called .git)
 git log								Displays history of all changes
 git log -p							Show patch introduced at each commit
 git log tag_1..tag_2				Show a list of file that have been changed between two tags 
@@ -136,14 +136,15 @@ chmod +x /usr/local/bin/git-core-editor.sh
 
 
 > Add the following to .bashrc (don’t forget to source it):
-
-#Make it possible to use Npp for editing files in Notepad++:
+#
+# Make it possible to use Npp for editing files in Notepad++:
 npp () {
 /cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe \
 "$(cygpath -aw "$@")" &
 }
 #
-
+# Make it possible to use 7zip for unpacking files:
+alias 7z="/cygdrive/c/Program\ Files\ \(x86\)/7-Zip/7z.exe"
 #
 # A script, 'gacp', that adds, commits and pushes changes in one go:
 alias gacp='echo "enter commit message : " && read MSG && git add . && git commit -m "$MSG" && git push'
