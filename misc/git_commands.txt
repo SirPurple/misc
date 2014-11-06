@@ -20,35 +20,38 @@ git checkout -- <file_1> <file_2>	Change multiple files back to status before la
 git clone <URL> <opt_local_name>	Clone a GIT repository (and set an optional local name)
 git commit -a						Commit and auto stage modified and deleted files. New files that we haven't told Git about are not affected.
 git commit -m "<commitmsg>"			Store staged changes, with a commit message
-git commit --amend -m "<commitmsg>"	Add, with a new commit msg, whatever has been staged to last commit
+git commit --amend -m "<commitmsg>"	Add, with a new commit msg, whatever has been staged to last made commit
 git commit -am <file_name>			Commit changes without passing the staging step
 git config alias.co commit			Configure the alias co for commit
+git diff							Diff current contents of the working directory and the staging area.
+git diff --staged					Diff all staged changes with last commit.
 git diff <branch_1> <branch_2>		Diff changes between two branches
 git diff HEAD						Diff changes with latest commit (HEAD = Refers to last commit)
 git diff HEAD^						Diff changes against parent of latest commit
 git diff HEAD^^						Diff changes against grandparent (= two commits ago) of latest commit
 git diff HEAD ~5					Diff changes against five commits ago
 git diff HEAD^..HEAD				Diff changes second most recent commit vs most recent commit
-git diff --staged					Diff all staged changes
 git diff tag_1 tag_2				Diff two tags (Press 'q' to return from the diff window)
-git fetch							Copy (pulls) the remote branch to local repo
+git fetch							Copy (pulls) the remote data (branch) to local repo
 git help							Help
 git help <command>					Help with a specific command
 git init							Initializes (creates) a local git repository (a subdir called .git)
-git log								Displays history of all changes
-git log -p							Show patch introduced at each commit
+git log								Displays history of all changes (in reverse chronological order)
+git log -<integer>					Displays history of the last <integer> changes (in reverse chronological order)
+git log -p							Show differences introduced at each commit
 git log tag_1..tag_2				Show a list of file that have been changed between two tags 
 git log --pretty=oneline			Displays history of all changes, one per line
 git log --oneline -p				Displays what lines were removed and added for the files modified for each commit
 git log --oneline --stat			Displays how many insertions and completeions were made
 git log --oneline --graph			Displays a visual representation of the branches and the commits on them so that merge bubbles are (hopefully) visible
-git log --until=1.minute.ago		Display history of changes up until one minute ago
+git log --since=<n>.weeks			Display history of changes doen during the last <n> weeks
+git log --until=<n>.minute.ago		Display history of changes up until <n> minute ago
 git merge <branch_name>				Merges changes from <branch_name> with current branch
 git merge origin/master					
+git pull origin master				Check or and pull any changes done
 git push -u <name> <branch>			Push the local commits (name: origin = remote repo name | branch: master = local branch to push | -u = Remember parameters)
 git push --tags						Push all new tags to remote
 git push origin :<branch_name>		Delete <branch_name> on origin
-git pull origin master				Check or and pull any changes done
 git rebase <branch_name>			Move all changes to master which are not in origin/master to a temporary area, then run all origin/master commits and then run all commits in the temp area, one at a time 
 git rebase --continue				Continue a halted rebase, such after having resolved a conflict
 git rebase --skip					Skip a patch in a halted rebase
@@ -65,7 +68,8 @@ git reset --hard HEAD^				Undo last commit and all changes
 git reset --hard HEAD^^				Undo last two commits and all changes
 git status							Lists what has changed since last commit
 git tag								List all tags
-git tag -a <name> -m "<Commitmsg>"	Set a tag with <name> and <commit_msg>
+git tag -a <name> -m "<tagmsg>"		Set a tag with <name> and <tag_msg>
+git tag -a <name> <commit_sha1>		Set a tag with <name> for a specific checksum (sha1). Useful when you want to set a tag on something "old".
 git tag <new_name> <old_name> && git tag -d <old_name>				Rename tag old to new
 git <command> --dry-run				Fake a run of a command
 --------------------------------------------------------------------------------------------------------
@@ -75,14 +79,14 @@ git <command> --dry-run				Fake a run of a command
 Info
 --------------------------------------------------------------------------------------------------------
 - Staged files = Files we've told git that are ready to be committed.
-- Keep commit messages in the presens
+- Keep commit messages in the presens.
 - Fast forward = Simple merge (no new commits have been made on the master branch) | Recursive = 
-- Tag = Reference to a specific commit
+- Tag = A reference to a specific commit.
 
 
 How Git Pull works:
 1 Fetch or synch local repo with remote repo.
-2 merges the origin/master with master
+2 merges the origin/master with (local) master
 *
 *
 Updating your local branch's tracking reference to the new remote:
@@ -131,24 +135,25 @@ wc <file_name>							Count the number of lines, words and characters in a file
 --------------------------------------------------------------------------------------------------------
 Things to add when setting up Cygwin
 --------------------------------------------------------------------------------------------------------
+
+
 > Set the git-core-editor file to be executable:
 chmod +x /usr/local/bin/git-core-editor.sh
 
-
 > Add the following to .bashrc (don’t forget to source it):
-#
+
 # Make it possible to use Npp for editing files in Notepad++:
 npp () {
 /cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe \
 "$(cygpath -aw "$@")" &
 }
-#
+
 # Make it possible to use 7zip for unpacking files:
 alias 7z="/cygdrive/c/Program\ Files\ \(x86\)/7-Zip/7z.exe"
-#
+
 # A script, 'gacp', that adds, commits and pushes changes in one go:
 alias gacp='echo "enter commit message : " && read MSG && git add . && git commit -m "$MSG" && git push'
-#
+
 
 > Switching remote URLS from SSH to HTTPS (or vice versa)
 https://help.github.com/articles/changing-a-remote-s-url/
