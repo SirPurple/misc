@@ -108,7 +108,11 @@ echo <text>								Echo (print) a text
 echo text_1 > <file>					Create a file with a text
 echo text_2 >> <file>					Append <text_2> to file <file>
 echo ??*								List all files with a name consisting of two or more chars
+ps                                      Shows a list of the current processes running
 wc -l < <file>							Count lines in <file>
+<file> | wc -l                          Pipe the standard output from <file> to wc
+
+mkdir aaa && cd aaa/					Create directory aaa and switch to it. Just to illustrate "two commands, one line". 
 
 sort									End input with ctrl+d
 [!a-z]									Match any character except lower case chars
