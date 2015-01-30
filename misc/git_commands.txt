@@ -22,7 +22,7 @@ git commit -a						Commit and auto stage modified and deleted files. New files t
 git commit -m "<commitmsg>"			Store staged changes, with a commit message
 git commit --amend -m "<commitmsg>"	Add, with a new commit msg, whatever has been staged to last made commit
 git commit -am <file_name>			Commit changes without passing the staging step
-git config alias.co commit			Configure the alias co for commit
+git config alias.co commit			Configure the alias co for commit   (example 2: git config --global alias.log 'log -2 --decorate')
 git diff							Diff current contents of the working directory and the staging area.
 git diff --staged					Diff all staged changes with last commit.
 git diff <branch_1> <branch_2>		Diff changes between two branches
