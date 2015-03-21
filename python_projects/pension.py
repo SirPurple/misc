@@ -1,77 +1,69 @@
 __author__ = 'ejonbrk'
 
+# Variable definitions
+age = 0
+salary = 0
+pbb = 44500           # Prisbasbelopp
+low_range_multiplier = 0
+mid_range_multiplier = 0
+top_range_multiplier = 0
+
+# Ask for input of age
 try:
     age = int(raw_input('Enter your age: '))
 except ValueError:
     print "That is not a valid number!"
 print age
 
+# Ask for input of salary
 try:
     salary = int(raw_input('Enter your salary: '))
 except ValueError:
     print "That is not a valid number!"
 print salary
 
-pbb = 44500           # Prisbasbelopp
-low_range_multiplier = 0
-mid_range_multiplier = 0
-top_range_multiplier = 0
-
-age_interval = ''
-
 # Define the age category of the person
 def age_category(age):
     if (age <= 35):
-        age_interval = 'A'
-        return age_interval
+        age_cat = 'A'
+        return age_cat
     elif (age >= 36 and age <= 45):
-        age_interval = 'B'
-        return age_interval
+        age_cat = 'B'
+        return age_cat
     elif (age >= 46 and age <= 55):
-        age_interval = 'C'
-        return age_interval
+        age_cat = 'C'
+        return age_cat
     else:
-        age_interval = 'D'
-        return age_interval
+        age_cat = 'D'
+        return age_cat
 
-print "This is your age category:", age_category(age)
+age_interval = age_category(age)
+print age_interval
+#print "This is your age category:", age_category(age)
 
 
 # Define the multipliers to use depending on the age interval
-def procentsats(age_interval):
-    if age_interval (A):
+def percentage_rate(age_interval):
+    if (age_interval == 'A'):
         low_range_multiplier = 0.05
-        return low_range_multiplier
         mid_range_multiplier = 0.24
-        return mid_range_multiplier
         top_range_multiplier = 0.12
-        return top_range_multiplier
-
-    if age_interval (B):
+        return low_range_multiplier, mid_range_multiplier, top_range_multiplier
+    elif (age_interval == 'B'):
         low_range_multiplier = 0.06
-        return low_range_multiplier
         mid_range_multiplier = 0.30
-        return mid_range_multiplier
         top_range_multiplier = 0.16
-        return top_range_multiplier
-
-    if age_interval (C):
+        return low_range_multiplier, mid_range_multiplier, top_range_multiplier
+    elif (age_interval == 'C'):
         low_range_multiplier = 0.06
-        return low_range_multiplier
         mid_range_multiplier = 0.33
-        return mid_range_multiplier
         top_range_multiplier = 0.18
-        return top_range_multiplier
-
-    if age_interval (D):
+        return low_range_multiplier, mid_range_multiplier, top_range_multiplier
+    elif (age_interval == 'D'):
         low_range_multiplier = 0.06
-        return low_range_multiplier
         mid_range_multiplier = 0.35
-        return mid_range_multiplier
         top_range_multiplier = 0.19
-        return top_range_multiplier
-
-
+        return low_range_multiplier, mid_range_multiplier, top_range_multiplier
 
 #def pension_calculator(salary):
  #   if salary > (pbb*7.5)
