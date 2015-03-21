@@ -17,12 +17,12 @@ except ValueError:
 
 # Ask for input of yearly salary
 try:
-    yearly_salary = int(raw_input('Enter your yearly yearly_salary: '))
+    yearly_salary = int(raw_input('Enter your yearly salary: '))
 except ValueError:
     print "That is not a valid number!"
 #print yearly_salary
 
-# Define the age category of the person
+# Define what age interval/category the person belongs in
 def age_category(age):
     if (age <= 35):
         age_cat = 'A'
@@ -49,7 +49,7 @@ def pension_calculator(yearly_salary, age_interval):
         elif age_interval == 'B' or age_interval == 'C' or age_interval == 'D':
             pension = (yearly_salary * 0.06)
             return pension
-    # yearly_salary upper than 7.5 * pbb but lower than 20 * pbb
+    # yearly_salary higher than 7.5 * pbb but lower than 20 * pbb
     elif yearly_salary > pbb_lower_limit and yearly_salary <= pbb_higher_limit:
         if age_interval == 'A':
             pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.24)
