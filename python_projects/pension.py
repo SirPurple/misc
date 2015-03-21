@@ -49,21 +49,21 @@ def pension_calculator(yearly_salary, age_interval):
         elif age_interval == 'B' or age_interval == 'C' or age_interval == 'D':
             pension = (yearly_salary * 0.06)
             return pension
-    # yearly_salary higher than 7.5 * pbb but lower than 20 * pbb
+    # yearly_salary upper than 7.5 * pbb but lower than 20 * pbb
     elif yearly_salary > pbb_lower_limit and yearly_salary <= pbb_higher_limit:
         if age_interval == 'A':
             pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.24)
             return pension
         elif age_interval == 'B':
-            pension = (yearly_salary * 0.30)
+            pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.30)
             return pension
         elif age_interval == 'C':
-            pension = (yearly_salary * 0.33)
+            pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.33)
             return pension
         elif age_interval == 'D':
-            pension = (yearly_salary * 0.35)
+            pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.35)
             return pension
-    # yearly_salary higher than 20 * pbb
+    # yearly_salary upper than 20 * pbb             # !!!! TO BE DONE !!!!!
     elif yearly_salary > pbb_higher_limit:
         if age_interval == 'A':
             pension = (yearly_salary * 0.12)
