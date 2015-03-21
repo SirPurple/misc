@@ -1,0 +1,27 @@
+pbb = 7.5
+part_1 = salary - (7.5 * pbb)
+part_1_pension = part_1 * 0.05
+part_2 = salary - part_1
+part_2_pension = part_2 * 0.24
+
+
+age 30
+yearly salary 300 000
+pbb * 7,5 = 333750
+0,06 * 300000 = 1500
+Yearly pension = 18000
+
+age 30
+yearly salary 400 000
+pbb * 7,5 = 333750
+0,05 * 333750 = 16687,5
+0,24 * (400 000 - 333 750) = 15900
+Yearly pension = 32587,5
+
+age 30
+yearly salary 1 000 000
+pbb * 7,5 = 333750
+0,05 * 333750 = 16687,5
+0,24 * (890 000 - 333 750) = 133500
+0,12 * (1 000 000 - 890 000) = 13200
+Yearly pension = 163387.5
