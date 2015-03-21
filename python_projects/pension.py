@@ -7,9 +7,6 @@ pbb = 44500           # Prisbasbelopp
 pbb_lower_limit = (pbb * 7,5)
 pbb_higher_limit = (pbb * 20)
 
-low_range_multiplier = 0
-mid_range_multiplier = 0
-top_range_multiplier = 0
 
 # Ask for input of age
 try:
@@ -18,7 +15,7 @@ except ValueError:
     print "That is not a valid number!"
 #print age
 
-# Ask for input of yearly_salary
+# Ask for input of yearly salary
 try:
     yearly_salary = int(raw_input('Enter your yearly yearly_salary: '))
 except ValueError:
@@ -43,7 +40,7 @@ def age_category(age):
 age_interval = age_category(age)
 #print age_interval
 
-def pension_calculator(age_interval,yearly_salary):
+def pension_calculator(yearly_salary, age_interval):
     # yearly_salary lower than 7.5 * pbb
     if yearly_salary <= pbb_lower_limit:
         if age_interval == 'A':
@@ -53,18 +50,17 @@ def pension_calculator(age_interval,yearly_salary):
             pension = (yearly_salary * 0.06)
             return pension
     # yearly_salary higher than 7.5 * pbb but lower than 20 * pbb
-    elif (yearly_salary > pbb_lower_limit) and (yearly_salary <= pbb_higher_limit):
+    elif yearly_salary > pbb_lower_limit and yearly_salary <= pbb_higher_limit:
         if age_interval == 'A':
-            part_1_pension = pbb_lower_limit * 0.05
-            part_2_pension = (yearly_salary - pbb_lower_limit) * 0.24
-            pension = part_1_pension + part_2_pension
-        if age_interval == 'B':
+            pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.24)
+            return pension
+        elif age_interval == 'B':
             pension = (yearly_salary * 0.30)
             return pension
-        if age_interval == 'C':
+        elif age_interval == 'C':
             pension = (yearly_salary * 0.33)
             return pension
-        if age_interval == 'D':
+        elif age_interval == 'D':
             pension = (yearly_salary * 0.35)
             return pension
     # yearly_salary higher than 20 * pbb
@@ -72,18 +68,18 @@ def pension_calculator(age_interval,yearly_salary):
         if age_interval == 'A':
             pension = (yearly_salary * 0.12)
             return pension
-        if age_interval == 'B':
+        elif age_interval == 'B':
             pension = (yearly_salary * 0.16)
             return pension
-        if age_interval == 'C':
+        elif age_interval == 'C':
             pension = (yearly_salary * 0.18)
             return pension
-        if age_interval == 'D':
+        elif age_interval == 'D':
             pension = (yearly_salary * 0.19)
             return pension
 
 # Let user know how poor he/she will be, monthly pension rounded
-yearly_pension = pension_calculator(age_interval, yearly_salary)
+yearly_pension = pension_calculator(yearly_salary, age_interval)
 monthly_pension = (yearly_pension / 12)
 monthly_salary = (yearly_salary / 12)
 
