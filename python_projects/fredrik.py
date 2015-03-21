@@ -1,10 +1,7 @@
 __author__ = 'egiafre'
 
-#prisbasbelopp 2015 = 44500 SEK
-#dvs. på allt du tjänar under 7,5 * 44500 (= 333750) får du årslön * 0,05 i pension om du är 25-35 år och årslön * 0,06 i #pension om du är 36 år eller äldre
-
-pbb = 44500 
-#7,5* pbb = 333750
+pbb = 44500
+#7.5* pbb = 333750
 #20 * pbb = 890000
 #30 * pbb = 1335000
 
@@ -24,26 +21,38 @@ except ValueError:
 #print yearly_salary
 
  
-if yearly_salary < 7,5 * pbb:
+if yearly_salary < 7.5 * pbb:
     if age <= 35:
-        pension = yearly_salary * 0,05
+        pension = yearly_salary * 0.05
     else:
-        pension = yearly_salary * 0,06
+        pension = yearly_salary * 0.06
  
-elif yearly_salary > 7,5 * pbb < 20 * pbb:
+elif yearly_salary > 7.5 * pbb < 20 * pbb:
     if age <= 35:
-        pension = yearly_salary * 0,05
+        pension = yearly_salary * 0.05
  
     elif age > 35 and age < 46:
-        pension = yearly_salary * 0,30
+        pension = yearly_salary * 0.30
     elif age > 45 and age < 56:
-        pension = yearly_salary * 0,33
+        pension = yearly_salary * 0.33
     else:
-        pension = yearly_salary * 0,35
+        pension = yearly_salary * 0.35
 else:
      
     if age <= 35:
-        pension = yearly_salary * 0,05
+        pension = yearly_salary * 0.05
  
     elif age > blabla:
-        pension = yearly_salary * 0,06
+        pension = yearly_salary * 0.06
+
+# Let user know how poor he/she will be, monthly pension rounded
+yearly_pension = pension_calculator(yearly_salary, age_interval)
+monthly_pension = (yearly_pension / 12)
+monthly_salary = (yearly_salary / 12)
+
+print ''
+print "Age:", age, "(equals age category",age_interval,")"
+print "Yearly salary:", yearly_salary, "SEK"
+print "Montly salary:", monthly_salary, "SEK"
+print 'Yearly pension', (yearly_pension), 'SEK'
+print 'Monthly pension', round(monthly_pension, 2), 'SEK'

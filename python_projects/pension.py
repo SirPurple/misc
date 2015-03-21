@@ -3,8 +3,8 @@ __author__ = 'ejonbrk'
 # Variable definitions
 age = 0
 yearly_salary = 0
-pbb = 44500           # Prisbasbelopp
-pbb_lower_limit = (pbb * 7,5)
+pbb = 44500                     # Prisbasbelopp
+pbb_lower_limit = (pbb * 7.5)
 pbb_higher_limit = (pbb * 20)
 
 
@@ -55,27 +55,27 @@ def pension_calculator(yearly_salary, age_interval):
             pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.24)
             return pension
         elif age_interval == 'B':
-            pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.30)
+            pension = (pbb_lower_limit * 0.06) + ((yearly_salary - pbb_lower_limit) * 0.30)
             return pension
         elif age_interval == 'C':
-            pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.33)
+            pension = (pbb_lower_limit * 0.06) + ((yearly_salary - pbb_lower_limit) * 0.33)
             return pension
         elif age_interval == 'D':
-            pension = (pbb_lower_limit * 0.05) + ((yearly_salary - pbb_lower_limit) * 0.35)
+            pension = (pbb_lower_limit * 0.06) + ((yearly_salary - pbb_lower_limit) * 0.35)
             return pension
     # yearly_salary upper than 20 * pbb             # !!!! TO BE DONE !!!!!
     elif yearly_salary > pbb_higher_limit:
         if age_interval == 'A':
-            pension = (yearly_salary * 0.12)
+            pension = (pbb_lower_limit * 0.05) + ((pbb_higher_limit - pbb_lower_limit) * 0.24) + ((yearly_salary - pbb_higher_limit) * 0.12)
             return pension
         elif age_interval == 'B':
-            pension = (yearly_salary * 0.16)
+            pension = (pbb_lower_limit * 0.05) + ((pbb_higher_limit - pbb_lower_limit) * 0.24) + ((yearly_salary - pbb_higher_limit) * 0.16)
             return pension
         elif age_interval == 'C':
-            pension = (yearly_salary * 0.18)
+            pension = (pbb_lower_limit * 0.05) + ((pbb_higher_limit - pbb_lower_limit) * 0.24) + ((yearly_salary - pbb_higher_limit) * 0.18)
             return pension
         elif age_interval == 'D':
-            pension = (yearly_salary * 0.19)
+            pension = (pbb_lower_limit * 0.05) + ((pbb_higher_limit - pbb_lower_limit) * 0.24) + ((yearly_salary - pbb_higher_limit) * 0.19)
             return pension
 
 # Let user know how poor he/she will be, monthly pension rounded
