@@ -2,7 +2,7 @@ __author__ = 'ejonbrk'
 
 # Variable definitions
 age = 0
-yearly_salary = 0
+monthly_salary = 0
 pbb = 44500                     # Prisbasbelopp
 pbb_lower_limit = (pbb * 7.5)
 pbb_higher_limit = (pbb * 20)
@@ -21,12 +21,14 @@ while True:
 # Ask for input of yearly salary, verify that the input is an integer
 while True:
     try:
-        yearly_salary = int(raw_input('Enter your yearly salary: '))
-        yearly_salary = int(yearly_salary)
+        monthly_salary = int(raw_input('Enter your monthly salary: '))
+        monthly_salary = int(monthly_salary)
         break
     except ValueError:
         print "That is not a valid number!"
-    #print yearly_salary
+    #print monthly_salary
+
+yearly_salary = (monthly_salary * 12)
 
 # Define what age interval/category the person belongs in
 def age_category(age):
@@ -84,14 +86,11 @@ def pension_calculator(yearly_salary, age_interval):
             pension = (pbb_lower_limit * 0.05) + ((pbb_higher_limit - pbb_lower_limit) * 0.24) + ((yearly_salary - pbb_higher_limit) * 0.19)
             return pension
 
-# Let user know how poor he/she will be, monthly pension rounded
+# Let the user know how poor he/she will be, pension rounded to integer
 yearly_pension = pension_calculator(yearly_salary, age_interval)
 monthly_pension = (yearly_pension / 12)
-monthly_salary = (yearly_salary / 12)
 
 print ''
-print "Age:", age, "(equals age category",age_interval,")"
-print "Yearly salary:", yearly_salary, "SEK"
-print "Montly salary:", monthly_salary, "SEK"
-print 'Yearly pension', (yearly_pension), 'SEK'
-print 'Monthly pension', round(monthly_pension, 2), 'SEK'
+print "Age:", age
+print "Montly salary:", monthly_salary, "SEK", "- which equals", yearly_salary, "SEK per year."
+print 'Monthly pension', round(monthly_pension, 0), 'SEK', "- which equals", round(yearly_pension, 0), 'SEK per year.'

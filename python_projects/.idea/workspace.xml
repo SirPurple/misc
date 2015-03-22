@@ -29,18 +29,8 @@
       <file leaf-file-name="pension.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pension.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73315364" vertical-offset="0" max-vertical-offset="1734">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fredrik.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fredrik.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
-              <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.52021563" vertical-offset="1303" max-vertical-offset="1717">
+              <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -354,7 +344,11 @@
       <created>1426962860982</created>
       <updated>1426962860983</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add integer checks to the age and salary inputs">
+      <created>1426985643233</created>
+      <updated>1426985643233</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -404,7 +398,8 @@
     <MESSAGE value="Added values for mid range" />
     <MESSAGE value="Small updates" />
     <MESSAGE value="Added high interval, should be working now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added high interval, should be working now" />
+    <MESSAGE value="Add integer checks to the age and salary inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add integer checks to the age and salary inputs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -417,7 +412,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/fredrik.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
+        <state vertical-scroll-proportion="0.8411458" vertical-offset="0" max-vertical-offset="1071">
           <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
           <folding />
         </state>
@@ -425,8 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pension.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73315364" vertical-offset="0" max-vertical-offset="1734">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.52021563" vertical-offset="1303" max-vertical-offset="1717">
+          <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
           <folding />
         </state>
       </provider>
