@@ -8,19 +8,25 @@ pbb_lower_limit = (pbb * 7.5)
 pbb_higher_limit = (pbb * 20)
 
 
-# Ask for input of age
-try:
-    age = int(raw_input('Enter your age: '))
-except ValueError:
-    print "That is not a valid number!"
-#print age
+# Ask for input of age, verify that the input is an integer
+while True:
+    try:
+        age = int(raw_input('Enter your age: '))
+        age = int(age)
+        break
+    except ValueError:
+        print "That is not a valid number!"
+    #print age
 
-# Ask for input of yearly salary
-try:
-    yearly_salary = int(raw_input('Enter your yearly salary: '))
-except ValueError:
-    print "That is not a valid number!"
-#print yearly_salary
+# Ask for input of yearly salary, verify that the input is an integer
+while True:
+    try:
+        yearly_salary = int(raw_input('Enter your yearly salary: '))
+        yearly_salary = int(yearly_salary)
+        break
+    except ValueError:
+        print "That is not a valid number!"
+    #print yearly_salary
 
 # Define what age interval/category the person belongs in
 def age_category(age):
@@ -63,7 +69,7 @@ def pension_calculator(yearly_salary, age_interval):
         elif age_interval == 'D':
             pension = (pbb_lower_limit * 0.06) + ((yearly_salary - pbb_lower_limit) * 0.35)
             return pension
-    # yearly_salary upper than 20 * pbb             # !!!! TO BE DONE !!!!!
+    # yearly_salary upper than 20 * pbb
     elif yearly_salary > pbb_higher_limit:
         if age_interval == 'A':
             pension = (pbb_lower_limit * 0.05) + ((pbb_higher_limit - pbb_lower_limit) * 0.24) + ((yearly_salary - pbb_higher_limit) * 0.12)
@@ -89,32 +95,3 @@ print "Yearly salary:", yearly_salary, "SEK"
 print "Montly salary:", monthly_salary, "SEK"
 print 'Yearly pension', (yearly_pension), 'SEK'
 print 'Monthly pension', round(monthly_pension, 2), 'SEK'
-
-
-'''
-# Define the multipliers to be used for the different age intervals
-def percentage_rate(age_interval):
-    if (age_interval == 'A'):
-        low_range_multiplier = 0.05
-        mid_range_multiplier = 0.24
-        top_range_multiplier = 0.12
-        return low_range_multiplier, mid_range_multiplier, top_range_multiplier
-    elif (age_interval == 'B'):
-        low_range_multiplier = 0.06
-        mid_range_multiplier = 0.30
-        top_range_multiplier = 0.16
-        return low_range_multiplier, mid_range_multiplier, top_range_multiplier
-    elif (age_interval == 'C'):
-        low_range_multiplier = 0.06
-        mid_range_multiplier = 0.33
-        top_range_multiplier = 0.18
-        return low_range_multiplier, mid_range_multiplier, top_range_multiplier
-    elif (age_interval == 'D'):
-        low_range_multiplier = 0.06
-        mid_range_multiplier = 0.35
-        top_range_multiplier = 0.19
-        return low_range_multiplier, mid_range_multiplier, top_range_multiplier
-
-multipliers = percentage_rate(age_interval)
-print 'These are the multipliers that will be used when doing the calculations:', multipliers
-'''
