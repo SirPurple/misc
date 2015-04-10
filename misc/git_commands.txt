@@ -140,11 +140,10 @@ wc <file_name>							Count the number of lines, words and characters in a file
 Things to add when setting up Cygwin
 --------------------------------------------------------------------------------------------------------
 
-
 > Set the git-core-editor file to be executable:
 chmod +x /usr/local/bin/git-core-editor.sh
 
-> Add the following to .bashrc (don’t forget to source it):
+> Add the following to .bashrc (don’t forget to source it: $ source ~/.bashrc):
 
 # Make it possible to use Npp for editing files in Notepad++:
 npp () {
@@ -162,6 +161,12 @@ alias gacp='echo "enter commit message : " && read MSG && git add . && git commi
 > Switching remote URLS from SSH to HTTPS (or vice versa)
 https://help.github.com/articles/changing-a-remote-s-url/
 
+# Why must I source .bashrc every time I open terminal for aliases to work?
+When starting the shell, it executes the configuration files in order. Add this to the .bash_profile file:
+# source the users bashrc if it exists
+if [ -f "${HOME}/.bashrc" ] ; then
+  source "${HOME}/.bashrc"
+  
 --------------------------------------------------------------------------------------------------------
 *
 *
