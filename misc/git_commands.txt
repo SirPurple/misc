@@ -70,6 +70,7 @@ git status							Lists what has changed since last commit
 git tag								List all tags
 git tag -a <name> -m "<tagmsg>"		Set a tag with <name> and <tag_msg>
 git tag -a <name> <commit_sha1>		Set a tag with <name> for a specific checksum (sha1). Useful when you want to set a tag on something "old".
+git tag -d <name>					Delete a tag
 git tag <new_name> <old_name> && git tag -d <old_name>				Rename tag old to new
 git <command> --dry-run				Fake a run of a command. Not available for all commands.
 --------------------------------------------------------------------------------------------------------
