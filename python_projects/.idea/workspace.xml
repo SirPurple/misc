@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7dca6c05-c827-4258-92e5-eec4617d220a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.bashrc" afterPath="$PROJECT_DIR$/../.bashrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitconfig" afterPath="$PROJECT_DIR$/../.gitconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pension.py" afterPath="$PROJECT_DIR$/pension.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/python_projects.iml" afterPath="$PROJECT_DIR$/.idea/python_projects.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="7dca6c05-c827-4258-92e5-eec4617d220a" name="Default" comment="" />
     <ignored path="python_projects.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
