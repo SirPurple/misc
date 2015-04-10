@@ -11,21 +11,21 @@ pbb_hi_limit = (pbb * 20)
 # Ask for input of age, verify that the input is an integer
 while True:
     try:
-        age = int(raw_input('Enter your age: '))
+        age = int(input('Enter your age: '))
         age = int(age)
         break
     except ValueError:
-        print "That is not a valid number!"
+        print ("That is not a valid number!")
     #print age
 
 # Ask for input of yearly salary, verify that the input is an integer
 while True:
     try:
-        monthly_salary = int(raw_input('Enter your monthly salary: '))
+        monthly_salary = int(input('Enter your monthly salary: '))
         monthly_salary = int(monthly_salary)
         break
     except ValueError:
-        print "That is not a valid number!"
+        print ("That is not a valid number!")
     #print monthly_salary
 
 yearly_salary = (monthly_salary * 12)
@@ -95,7 +95,7 @@ def pension_calculator(yearly_salary, age_interval):
 yearly_pension = pension_calculator(yearly_salary, age_interval)
 monthly_pension = (yearly_pension / 12)
 
-print ''
-print "Age:", age, "years"
-print "Montly salary:", monthly_salary, "SEK", "- which equals", yearly_salary, "SEK per year."
-print 'Monthly pension', round(monthly_pension, 0), 'SEK', "- which equals", round(yearly_pension, 0), 'SEK per year.'
+print ('')
+print ("Age:", age, "years")
+print ("Montly salary:", monthly_salary, "SEK", "- which equals", yearly_salary, "SEK per year.")
+print ("Monthly pension", round(monthly_pension, 0), 'SEK', "- which equals", round(yearly_pension, 0), 'SEK per year.')
