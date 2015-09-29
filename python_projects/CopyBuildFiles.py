@@ -3,6 +3,7 @@ __author__ = 'Johan'
 
 import shutil
 
+//this is a comment
 def copyFile(src, dest):
     try:
         shutil.copy('c/temp/a.txt', 'c/temp/moon/b.txt')
