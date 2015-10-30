@@ -84,18 +84,22 @@ Info
 - Fast forward = Simple merge (no new commits have been made on the master branch) | Recursive = 
 - Tag = A reference to a specific commit.
 
-
 How Git Pull works:
 1 Fetch or synch local repo with remote repo.
 2 merges the origin/master with (local) master
 *
 *
+
 Updating your local branch's tracking reference to the new remote:
 1 git branch -m old_branch new_branch         # Rename branch locally    
 2 git push origin :old_branch                 # Delete the old branch on remote   
 3 git push --set-upstream origin new_branch   # Push the new branch, set local branch to track the new remote
 *
 *
+
+Messed up your local copy of a branch? Nothing you want to save?:
+$ git checkout <branch>
+$ git reset --hard origin/<branch>
 --------------------------------------------------------------------------------------------------------
 git push origin HEAD:refs/for/ste-dev-br1
 --------------------------------------------------------------------------------------------------------
