@@ -96,8 +96,10 @@ def pension_calculator(yearly_salary, age_interval):
 # Let the user know how poor he/she will be, pension rounded to integer
 yearly_pension = pension_calculator(yearly_salary, age_interval)
 monthly_pension = (yearly_pension / 12)
+pension_percentage = (monthly_pension / monthly_salary)
 
 print ('')
 print ("Age:", age, "years")
-print ("Montly salary:", monthly_salary, "SEK", "- which equals", yearly_salary, "SEK per year.")
+print ("Monthly salary:", monthly_salary, "SEK", "- which equals", yearly_salary, "SEK per year.")
 print ("Monthly pension", round(monthly_pension, 0), 'SEK', "- which equals", round(yearly_pension, 0), 'SEK per year.')
+print ("Pension %:", pension_percentage)
