@@ -1,11 +1,11 @@
 __author__ = 'Johan Brådvik'
-# A small script to calculate pension at Q.
-# This version has been updated for and tested on Python 3.4
+# A small script to calculate pension at Qlik.
+# This version has been updated for and tested on Python 3.7
 
 # Variable definitions
 age = 0
 monthly_salary = 0
-pbb = 44500                     # Prisbasbelopp value set for 2015
+pbb = 45500                     # Prisbasbelopp value set for 2018
 pbb_low_limit = (pbb * 7.5)
 pbb_hi_limit = (pbb * 20)
 
@@ -32,7 +32,7 @@ while True:
 
 yearly_salary = (monthly_salary * 12)
 
-# Define what age interval/category the person belongs in
+# Define what age interval/category the person belongs to
 def age_category(age):
     if age <= 35:
         interval = 'A'
@@ -48,7 +48,7 @@ def age_category(age):
         return interval
 
 age_interval = age_category(age)
-#print age_interval
+    #print age_interval
 
 # Calculate pension based on yearly salary and age
 def pension_calculator(yearly_salary, age_interval):
@@ -74,7 +74,7 @@ def pension_calculator(yearly_salary, age_interval):
         elif age_interval == 'D':
             pension = (pbb_low_limit * 0.06) + ((yearly_salary - pbb_low_limit) * 0.35)
             return pension
-    # yearly_salary upper than 20 * pbb
+    # yearly_salary higher than 20 * pbb
     elif yearly_salary > pbb_hi_limit:
         if age_interval == 'A':
             pension = (pbb_low_limit * 0.05) + ((pbb_hi_limit - pbb_low_limit) * 0.24) + \
@@ -96,10 +96,10 @@ def pension_calculator(yearly_salary, age_interval):
 # Let the user know how poor he/she will be, pension rounded to integer
 yearly_pension = pension_calculator(yearly_salary, age_interval)
 monthly_pension = (yearly_pension / 12)
-pension_percentage = (monthly_pension / monthly_salary)
+pension_percentage = (yearly_pension / yearly_salary)
 
 print ('')
 print ("Age:", age, "years")
 print ("Monthly salary:", monthly_salary, "SEK", "- which equals", yearly_salary, "SEK per year.")
 print ("Monthly pension", round(monthly_pension, 0), 'SEK', "- which equals", round(yearly_pension, 0), 'SEK per year.')
-print ("Pension %:", pension_percentage)
+print ("Pension in percent:", round(pension_percentage * 100, 2),"%")
